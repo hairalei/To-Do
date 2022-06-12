@@ -31,15 +31,10 @@ function addTodo(todo) {
   todosUL.appendChild(todoEl);
 
   todoEl.addEventListener("click", (e) => {
-    let click = 1;
     crossoutTodo(e);
-    click++;
-
-    if (click > 1) {
-      deleteTodo(e);
-      click = 1;
-    }
   });
+
+  todoEl.addEventListener("touchmove", (e) => deleteTodo(e));
 
   todoEl.addEventListener("contextmenu", (e) => {
     e.preventDefault();
