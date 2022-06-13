@@ -34,7 +34,16 @@ function addTodo(todo) {
     crossoutTodo(e);
   });
 
-  todoEl.addEventListener("touchmove", (e) => deleteTodo(e));
+  todoEl.addEventListener("touchstart", (e) => {
+    let touch = 1;
+    touch++;
+    console.log(touch);
+
+    if (touch >= 50) {
+      deleteTodo(e);
+      touch = 1;
+    }
+  });
 
   todoEl.addEventListener("contextmenu", (e) => {
     e.preventDefault();
