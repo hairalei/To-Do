@@ -11,6 +11,8 @@ if (todos) {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  if (!input.value) return;
+
   addTodo();
   input.value = "";
 });
@@ -39,7 +41,7 @@ function addTodo(todo) {
     touch++;
     console.log(touch);
 
-    if (touch >= 50) {
+    if (touch >= 100) {
       deleteTodo(e);
       touch = 1;
     }
